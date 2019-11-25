@@ -1,0 +1,11 @@
+{% extends "base.html.twig" %}
+
+{% block title 'Merlin' %}
+
+{% block body %}
+<h1>Une parole de Merlin</h1>
+<div>sur <i>{{speech.subject}}</i></div>
+<div>
+    {{speech.text|raw}}
+</div>
+{% endblock %}

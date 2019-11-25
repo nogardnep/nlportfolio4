@@ -1,0 +1,9 @@
+home:
+  path: /
+  controller: App\Controller\HomeController::index
+merlin_speech.index:
+  path: /merlin
+  controller: App\Controller\MerlinSpeechController::index
+merlin_speech.show:
+  path: /merlin/{id}
+  controller: App\Controller\MerlinSpeechController::show
