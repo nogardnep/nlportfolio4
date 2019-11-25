@@ -4,12 +4,14 @@
 
 
 {% block body %}
-<h1>Home</h1>
-<h2>Merlin a parlé...</h2>
-{% for speech in merlin_speeches %}
-<div>
-    <div>{{ speech.subject }}</div>
-    <div>{{ speech.text|raw }}</div>
-</div>
+<h1>Accueil</h1>
+<section>
+    <h2>Merlin a parlé...</h2>
+    {% for speech in merlin_speeches %}
+    <div>
+        <div>{{ speech.subject }}</div>
+        <div>{{ speech.text|raw }}</div>
+    </div>
+</section>
 {% endfor %}
 {% endblock %}

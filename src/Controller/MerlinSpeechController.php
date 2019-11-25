@@ -18,12 +18,12 @@ class MerlinSpeechController extends AbstractController
     /**
      * @var EntityManagerInterface
      */
-    private $entity_manager;
+    private $entityManager;
 
-    public function __construct(MerlinSpeechRepository $repository, EntityManagerInterface $entity_manager)
+    public function __construct(MerlinSpeechRepository $repository, EntityManagerInterface $entityManager)
     {
         $this->repository = $repository;
-        $this->entity_manager = $entity_manager;
+        $this->entityManager = $entityManager;
     }
 
     /**
@@ -31,11 +31,6 @@ class MerlinSpeechController extends AbstractController
      */
     public function index(): Response
     {
-        $speeches = $this->repository->findAll();
-        $speeches[0]->setTruthful(true);
-        dump($speeches);
-        $this->entity_manager->flush();
-        dump($this->repository->findAllVisible());
         return $this->render(
             'pages/merlin-speech/index.html.twig',
             [
@@ -69,8 +64,8 @@ class MerlinSpeechController extends AbstractController
             ->setSubject("temps")
             ->setText("<p>Soyez sans crainte : avec le temps le cœur s'endurcit... et le poids des années s'allège.</p>");
 
-        $entity_manager = $this->getDoctrine()->getManager();
-        $entity_manager->persist($speech);
-        $entity_manager->flush();
+        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager->persist($speech);
+        $entityManager->flush();
     }
 }
