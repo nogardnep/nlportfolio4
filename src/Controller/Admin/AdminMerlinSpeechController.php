@@ -36,7 +36,8 @@ class AdminMerlinSpeechController extends AbstractController
             'admin/merlin-speech/index.html.twig',
             [
                 compact('speeches'),
-                'speeches' => $speeches
+                'speeches' => $speeches,
+                'delete_confirm_message' => "Cette pensée doit-elle vraiment être oubliée ?"
             ]
         );
     }

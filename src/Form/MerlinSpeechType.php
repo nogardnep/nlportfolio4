@@ -19,8 +19,12 @@ class MerlinSpeechType extends AbstractType
             ->add('text', null, [
                 'label' => 'Mots'
             ])
-            ->add('truthful', CheckboxType::class, [
+            ->add('truthful', null, [
                 'label' => 'Véridique'
+            ])
+            ->add('last_occurrence', null, [
+                'label' => 'Dernière élocution',
+                'disabled' => true
             ]);
     }
 

@@ -14,6 +14,19 @@
             <li><a href="{{ path('merlin_speech.index') }}">Merlin</a></li>
         </ul>
     </nav>
+
+    {% if app.user %}
+    <div>
+        <p>Le maître est présent</p>
+        <nav>
+            <ul>
+                <li><a href="{{ path('admin.merlin_speech.index') }}">Étudier les paroles de Merlin</a></li>
+                <li><a href="{{ path('logout') }}">Revenir incognito</a></li>
+            </ul>
+        </nav>
+    </div>
+    {% endif %}
+
     {% block body %}
     {% endblock %}
     {% block javascripts %}{% endblock %}
