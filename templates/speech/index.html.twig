@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Speech index{% endblock %}
+
+{% block body %}
+<h1>Speech index</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Personnage</th>
+            <th>Contexte</th>
+            <th>Sujet</th>
+            <th>Juste</th>
+            <th>Mots</th>
+            <th>Médité le</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for speech in speeches %}
+        <tr>
+            <td>{{ speech.id }}</td>
+            <td>{{ speech.personage }}</td>
+            <td>{{ speech.context }}</td>
+            <td>{{ speech.subject }}</td>
+            <td>{{ (speech.fair ? 'oui' : 'non') }}</td>
+            <td>{{ speech.content }}</td>
+            <td>{{ speech.createdAt|date('d/m/Y') }}</td>
+            <td>
+                <a href="{{ path('speech_show', {'id': speech.id}) }}">show</a>
+                <a href="{{ path('speech_edit', {'id': speech.id}) }}">edit</a>
+            </td>
+        </tr>
+        {% else %}
+        <tr>
+            <td colspan="2">no records found</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<a href="{{ path('speech_new') }}">Create new</a>
+{% endblock %}

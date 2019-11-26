@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Speech{% endblock %}
+
+{% block body %}
+<h1>Speech</h1>
+<table class="table">
+    <tbody>
+        <tr>
+            <th>Id</th>
+            <td>{{ speech.id }}</td>
+        </tr>
+        <tr>
+            <th>Personnage</th>
+            <td>{{ speech.personage }}</td>
+        </tr>
+        <tr>
+            <th>Contexte</th>
+            <td>{{ speech.context }}</td>
+        </tr>
+        <tr>
+            <th>Sujet</th>
+            <td>{{ speech.subject }}</td>
+        </tr>
+        <tr>
+            <th>Juste</th>
+            <td>{{ (speech.fair ? 'oui' : 'non') }}</td>
+        </tr>
+        <tr>
+            <th>Mots</th>
+            <td>{{ speech.content }}</td>
+        </tr>
+        <tr>
+            <th>Fut médité le </th>
+            <td>{{ speech.createdAt|date('d/m/Y') }}</td>
+        </tr>
+    </tbody>
+</table>
+
+<a href="{{ path('speech_index') }}">back to list</a>
+
+<a href="{{ path('speech_edit', {'id': speech.id}) }}">edit</a>
+
+{{ include('speech/_delete_form.html.twig') }}
+{% endblock %}
