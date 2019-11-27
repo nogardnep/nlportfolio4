@@ -67,6 +67,8 @@ class PersonageSpeechController extends AbstractController
     public function edit(Request $request, PersonageSpeech $personageSpeech): Response
     {
         $form = $this->createForm(PersonageSpeechType::class, $personageSpeech);
+        dump($personageSpeech);
+        dump($form);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

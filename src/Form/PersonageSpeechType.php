@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\PersonageSpeech;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -18,6 +19,9 @@ class PersonageSpeechType extends AbstractType
             ->add('context')
             ->add('subject')
             ->add('personage')
+            ->add('imageFile', FileType::class, [
+                'required' => false
+            ])
         ;
     }
 

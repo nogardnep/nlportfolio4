@@ -1,4 +1,5 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
+<div>{{ form_row(form.imageFile) }}</div>
+    {{ form_rest(form) }}
     <button class="btn">{{ button_label|default('Save') }}</button>
 {{ form_end(form) }}
