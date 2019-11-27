@@ -24,7 +24,7 @@ class Personage
     private $title;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Speech", mappedBy="personage")
+     * @ORM\OneToMany(targetEntity="App\Entity\PersonageSpeech", mappedBy="personage")
      */
     private $speeches;
 
@@ -56,14 +56,14 @@ class Personage
     }
 
     /**
-     * @return Collection|Speech[]
+     * @return Collection|PersonageSpeech[]
      */
     public function getSpeeches(): Collection
     {
         return $this->speeches;
     }
 
-    public function addSpeech(Speech $speech): self
+    public function addSpeech(PersonageSpeech $speech): self
     {
         if (!$this->speeches->contains($speech)) {
             $this->speeches[] = $speech;
@@ -73,7 +73,7 @@ class Personage
         return $this;
     }
 
-    public function removeSpeech(Speech $speech): self
+    public function removeSpeech(PersonageSpeech $speech): self
     {
         if ($this->speeches->contains($speech)) {
             $this->speeches->removeElement($speech);

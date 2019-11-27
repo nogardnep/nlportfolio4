@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}MerlinSpeech index{% endblock %}
+
+{% block body %}
+    <h1>MerlinSpeech index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Fair</th>
+                <th>Content</th>
+                <th>Created_at</th>
+                <th>Id</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for merlin_speech in merlin_speeches %}
+            <tr>
+                <td>{{ merlin_speech.fair ? 'Yes' : 'No' }}</td>
+                <td>{{ merlin_speech.content }}</td>
+                <td>{{ merlin_speech.createdAt ? merlin_speech.createdAt|date('Y-m-d') : '' }}</td>
+                <td>{{ merlin_speech.id }}</td>
+                <td>
+                    <a href="{{ path('merlin_speech_show', {'id': merlin_speech.id}) }}">show</a>
+                    <a href="{{ path('merlin_speech_edit', {'id': merlin_speech.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('merlin_speech_new') }}">Create new</a>
+{% endblock %}

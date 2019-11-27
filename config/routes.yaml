@@ -1,29 +1,29 @@
 home:
   path: /
   controller: App\Controller\HomeController::index
-merlin_speech.index:
-  path: /merlin
-  controller: App\Controller\MerlinSpeechController::index
-merlin_speech.show:
-  path: /merlin/{id}
-  controller: App\Controller\MerlinSpeechController::show
-admin.merlin_speech.index:
-  path: /admin-merlin
-  controller: App\Controller\Admin\AdminMerlinSpeechController::index
-admin.merlin_speech.create:
-  path: /admin-merlin/create
-  controller: App\Controller\Admin\AdminMerlinSpeechController::create
-admin.merlin_speech.edit:
-  path: /admin-merlin/{id}/edit
-  controller: App\Controller\Admin\AdminMerlinSpeechController::edit
-  methods: GET|POST
-admin.merlin_speech.delete:
-  path: /admin-merlin/{id}/delete
-  controller: App\Controller\Admin\AdminMerlinSpeechController::delete
-  methods: DELETE
-login:
-  path: /login
-  controller: App\Controller\SecurityController::login
-logout:
-  path: /logout
-  controller: App\Controller\SecurityController::logout
+# merlin_speech.index:
+#   path: /merlin
+#   controller: App\Controller\MerlinSpeechController::index
+# merlin_speech.show:
+#   path: /merlin/{id}
+#   controller: App\Controller\MerlinSpeechController::show
+# admin.merlin_speech.index:
+#   path: /admin-merlin
+#   controller: App\Controller\Admin\AdminMerlinSpeechController::index
+# admin.merlin_speech.create:
+#   path: /admin-merlin/create
+#   controller: App\Controller\Admin\AdminMerlinSpeechController::create
+# admin.merlin_speech.edit:
+#   path: /admin-merlin/{id}/edit
+#   controller: App\Controller\Admin\AdminMerlinSpeechController::edit
+#   methods: GET|POST
+# admin.merlin_speech.delete:
+#   path: /admin-merlin/{id}/delete
+#   controller: App\Controller\Admin\AdminMerlinSpeechController::delete
+#   methods: DELETE
+# login:
+#   path: /login
+#   controller: App\Controller\SecurityController::login
+# logout:
+#   path: /logout
+#   controller: App\Controller\SecurityController::logout

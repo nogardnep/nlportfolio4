@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}PersonageSpeech{% endblock %}
+
+{% block body %}
+    <h1>PersonageSpeech</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ personage_speech.id }}</td>
+            </tr>
+            <tr>
+                <th>Context</th>
+                <td>{{ personage_speech.context }}</td>
+            </tr>
+            <tr>
+                <th>Fair</th>
+                <td>{{ personage_speech.fair ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Content</th>
+                <td>{{ personage_speech.content }}</td>
+            </tr>
+            <tr>
+                <th>Created_at</th>
+                <td>{{ personage_speech.createdAt ? personage_speech.createdAt|date('Y-m-d') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('personage_speech_index') }}">back to list</a>
+
+    <a href="{{ path('personage_speech_edit', {'id': personage_speech.id}) }}">edit</a>
+
+    {{ include('personage_speech/_delete_form.html.twig') }}
+{% endblock %}

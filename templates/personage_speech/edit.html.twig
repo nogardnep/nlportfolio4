@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit PersonageSpeech{% endblock %}
+
+{% block body %}
+    <h1>Edit PersonageSpeech</h1>
+
+    {{ include('personage_speech/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('personage_speech_index') }}">back to list</a>
+
+    {{ include('personage_speech/_delete_form.html.twig') }}
+{% endblock %}

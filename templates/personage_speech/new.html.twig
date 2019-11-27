@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New PersonageSpeech{% endblock %}
+
+{% block body %}
+    <h1>Create new PersonageSpeech</h1>
+
+    {{ include('personage_speech/_form.html.twig') }}
+
+    <a href="{{ path('personage_speech_index') }}">back to list</a>
+{% endblock %}

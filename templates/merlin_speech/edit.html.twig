@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit MerlinSpeech{% endblock %}
+
+{% block body %}
+    <h1>Edit MerlinSpeech</h1>
+
+    {{ include('merlin_speech/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('merlin_speech_index') }}">back to list</a>
+
+    {{ include('merlin_speech/_delete_form.html.twig') }}
+{% endblock %}

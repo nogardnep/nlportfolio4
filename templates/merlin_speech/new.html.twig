@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New MerlinSpeech{% endblock %}
+
+{% block body %}
+    <h1>Create new MerlinSpeech</h1>
+
+    {{ include('merlin_speech/_form.html.twig') }}
+
+    <a href="{{ path('merlin_speech_index') }}">back to list</a>
+{% endblock %}

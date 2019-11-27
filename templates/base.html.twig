@@ -11,21 +11,22 @@
     <nav>
         <ul>
             <li><a href="{{ path('home') }}">Accueil</a></li>
-            <li><a href="{{ path('merlin_speech.index') }}">Merlin</a></li>
+            <li><a href="{{ path('merlin_speech_index') }}">Dires de Merlin</a></li>
+            <li><a href="{{ path('subject_index') }}">Sujets</a></li>
+            <li><a href="{{ path('personage_index') }}">Personnages</a></li>
+            <li><a href="{{ path('personage_speech_index') }}">Discours</a></li>
         </ul>
     </nav>
 
-    {% if app.user %}
     <div>
+        {% if is_granted('ROLE_USER') %}
         <p>Le maître est présent</p>
-        <nav>
-            <ul>
-                <li><a href="{{ path('admin.merlin_speech.index') }}">Étudier les paroles de Merlin</a></li>
-                <li><a href="{{ path('logout') }}">Revenir incognito</a></li>
-            </ul>
-        </nav>
+        <div><a href="{{ path('app_logout') }}">Repasser le portail</a></div>
+        {% else %}
+        <p>Le maître est absent</p>
+        <div><a href="{{ path('app_login') }}">Passer le portail</a></div>
+        {% endif %}
     </div>
-    {% endif %}
 
     {% block body %}
     {% endblock %}

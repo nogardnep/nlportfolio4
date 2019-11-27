@@ -2,12 +2,12 @@
 
 namespace App\Form;
 
-use App\Entity\MerlinSpeech;
+use App\Entity\PersonageSpeech;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class MerlinSpeechType extends AbstractType
+class PersonageSpeechType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
@@ -15,14 +15,16 @@ class MerlinSpeechType extends AbstractType
             ->add('fair')
             ->add('content')
             ->add('created_at')
+            ->add('context')
             ->add('subject')
+            ->add('personage')
         ;
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => MerlinSpeech::class,
+            'data_class' => PersonageSpeech::class,
         ]);
     }
 }

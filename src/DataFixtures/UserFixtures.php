@@ -9,33 +9,26 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class UserFixtures extends Fixture
 {
-    /**
-     * @var UserPasswordEncoderInterface
-     */
-    private $encoder;
+    private $passwordEncoder;
 
-    /**
-     * @var ObjectManager
-     */
-    private $manager;
 
-    public function __construct(UserPasswordEncoderInterface $encoder)
+    public function __construct(UserPasswordEncoderInterface $passwordEncoder)
     {
-        $this->encoder = $encoder;
+        $this->passwordEncoder = $passwordEncoder;
     }
 
     public function load(ObjectManager $manager)
     {
-        $this->manager = $manager;
-        $this->addUser("maitre", "maitre");
-        $this->manager->flush();
-    }
-
-    public function addUser($username, $password)
-    {
         $user = new User();
-        $user->setUsername($username);
-        $user->setPassword($this->encoder->encodePassword($user, $password));
-        $this->manager->persist($user);
+        $user->setUsername("maitre");
+        $user->setDisplayedName("Le maître");
+        $user->setEmail("contact@nicolaslouin.fr");
+        $user->setPassword($this->passwordEncoder->encodePassword(
+            $user,
+            'maitre'
+        ));
+        $manager->persist($user);
+
+        $manager->flush();
     }
 }

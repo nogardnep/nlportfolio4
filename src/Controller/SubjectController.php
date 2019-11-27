@@ -9,6 +9,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 
 /**
  * @Route("/subject")
@@ -27,6 +28,7 @@ class SubjectController extends AbstractController
 
     /**
      * @Route("/new", name="subject_new", methods={"GET","POST"})
+     * @Security("is_granted(constant('App\\Entity\\User::ROLE_FOR_EDITION'))")
      */
     public function new(Request $request): Response
     {
@@ -60,6 +62,7 @@ class SubjectController extends AbstractController
 
     /**
      * @Route("/{id}/edit", name="subject_edit", methods={"GET","POST"})
+     * @Security("is_granted(constant('App\\Entity\\User::ROLE_FOR_EDITION'))")
      */
     public function edit(Request $request, Subject $subject): Response
     {
@@ -80,6 +83,7 @@ class SubjectController extends AbstractController
 
     /**
      * @Route("/{id}", name="subject_delete", methods={"DELETE"})
+     * @Security("is_granted(constant('App\\Entity\\User::ROLE_FOR_EDITION'))")
      */
     public function delete(Request $request, Subject $subject): Response
     {

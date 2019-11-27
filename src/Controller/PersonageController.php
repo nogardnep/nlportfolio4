@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\User;
 use App\Entity\Personage;
 use App\Form\PersonageType;
 use App\Repository\PersonageRepository;
@@ -9,6 +10,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 
 /**
  * @Route("/personage")
@@ -27,6 +29,7 @@ class PersonageController extends AbstractController
 
     /**
      * @Route("/new", name="personage_new", methods={"GET","POST"})
+     * @Security("is_granted(constant('App\\Entity\\User::ROLE_FOR_EDITION'))")
      */
     public function new(Request $request): Response
     {
@@ -60,6 +63,7 @@ class PersonageController extends AbstractController
 
     /**
      * @Route("/{id}/edit", name="personage_edit", methods={"GET","POST"})
+     * @Security("is_granted(constant('App\\Entity\\User::ROLE_FOR_EDITION'))")
      */
     public function edit(Request $request, Personage $personage): Response
     {
@@ -80,10 +84,11 @@ class PersonageController extends AbstractController
 
     /**
      * @Route("/{id}", name="personage_delete", methods={"DELETE"})
+     * @Security("is_granted(constant('App\\Entity\\User::ROLE_FOR_EDITION'))")
      */
     public function delete(Request $request, Personage $personage): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$personage->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $personage->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($personage);
             $entityManager->flush();

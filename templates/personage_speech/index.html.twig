@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}PersonageSpeech index{% endblock %}
+
+{% block body %}
+    <h1>PersonageSpeech index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Fair</th>
+                <th>Content</th>
+                <th>Created_at</th>
+                <th>Id</th>
+                <th>Context</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for personage_speech in personage_speeches %}
+            <tr>
+                <td>{{ personage_speech.fair ? 'Yes' : 'No' }}</td>
+                <td>{{ personage_speech.content }}</td>
+                <td>{{ personage_speech.createdAt ? personage_speech.createdAt|date('Y-m-d') : '' }}</td>
+                <td>{{ personage_speech.id }}</td>
+                <td>{{ personage_speech.context }}</td>
+                <td>
+                    <a href="{{ path('personage_speech_show', {'id': personage_speech.id}) }}">show</a>
+                    <a href="{{ path('personage_speech_edit', {'id': personage_speech.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('personage_speech_new') }}">Create new</a>
+{% endblock %}
